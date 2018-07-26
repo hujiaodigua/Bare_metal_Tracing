@@ -1,0 +1,133 @@
+disassemble /m delay
+Dump of assembler code for function delay:
+110	{
+   0x0800036c <+0>:	push	{r7}
+   0x0800036e <+2>:	sub	sp, #12
+   0x08000370 <+4>:	add	r7, sp, #0
+
+111	    int i;
+112	    for (i = 0; i < 2; i++);
+   0x08000372 <+6>:	movs	r3, #0
+   0x08000374 <+8>:	str	r3, [r7, #4]
+   0x08000376 <+10>:	b.n	0x800037e <delay+18>
+   0x08000378 <+12>:	ldr	r3, [r7, #4]
+   0x0800037a <+14>:	adds	r3, #1
+   0x0800037c <+16>:	str	r3, [r7, #4]
+   0x0800037e <+18>:	ldr	r3, [r7, #4]
+   0x08000380 <+20>:	cmp	r3, #1
+   0x08000382 <+22>:	ble.n	0x8000378 <delay+12>
+
+113	}
+   0x08000384 <+24>:	nop
+   0x08000386 <+26>:	adds	r7, #12
+   0x08000388 <+28>:	mov	sp, r7
+   0x0800038a <+30>:	pop	{r7}
+   0x0800038c <+32>:	bx	lr
+   0x0800038e:	nop
+
+
+
+disassemble /m main
+Dump of assembler code for function main:
+118	{
+   0x08000390 <+0>:	push	{r7, lr}
+   0x08000392 <+2>:	sub	sp, #16
+   0x08000394 <+4>:	add	r7, sp, #0
+
+119	    configure_tracing();
+=> 0x08000396 <+6>:	bl	0x80001d8 <configure_tracing>
+
+120	    configure_watchpoint();
+   0x0800039a <+10>:	bl	0x8000284 <configure_watchpoint>
+
+121	    int a = 0;
+   0x0800039e <+14>:	movs	r3, #0
+   0x080003a0 <+16>:	str	r3, [r7, #12]
+
+122	    int b = 0;
+   0x080003a2 <+18>:	movs	r3, #0
+   0x080003a4 <+20>:	str	r3, [r7, #8]
+
+123	    int c = 0;
+   0x080003a6 <+22>:	movs	r3, #0
+   0x080003a8 <+24>:	str	r3, [r7, #4]
+
+124	    int d = 0;
+   0x080003aa <+26>:	movs	r3, #0
+   0x080003ac <+28>:	str	r3, [r7, #0]
+
+125	    while(1)
+126	    {
+127	        a++;
+   0x080003ae <+30>:	ldr	r3, [r7, #12]
+   0x080003b0 <+32>:	adds	r3, #1
+   0x080003b2 <+34>:	str	r3, [r7, #12]
+
+128	        if(a == 800)
+   0x080003b4 <+36>:	ldr	r3, [r7, #12]
+   0x080003b6 <+38>:	cmp.w	r3, #800	; 0x320
+   0x080003ba <+42>:	bne.n	0x80003ce <main+62>
+
+129	        {
+130	            globalCounter = 1;
+   0x080003bc <+44>:	ldr	r3, [pc, #56]	; (0x80003f8 <main+104>)
+   0x080003be <+46>:	movs	r2, #1
+   0x080003c0 <+48>:	str	r2, [r3, #0]
+
+131	           //ITM_Print(0,"a==9");
+132	            a = 0;
+   0x080003c2 <+50>:	movs	r3, #0
+   0x080003c4 <+52>:	str	r3, [r7, #12]
+
+133	            b = globalCounter;
+   0x080003c6 <+54>:	ldr	r3, [pc, #48]	; (0x80003f8 <main+104>)
+   0x080003c8 <+56>:	ldr	r3, [r3, #0]
+   0x080003ca <+58>:	str	r3, [r7, #8]
+   0x080003cc <+60>:	b.n	0x80003f2 <main+98>
+
+134	        }
+135	        else
+136	        {
+137	            //globalCounter = 0;
+138	            //ITM_Print(0,"a!=9");
+139	            c = 1;
+   0x080003ce <+62>:	movs	r3, #1
+   0x080003d0 <+64>:	str	r3, [r7, #4]
+
+140	            d = 1;
+   0x080003d2 <+66>:	movs	r3, #1
+   0x080003d4 <+68>:	str	r3, [r7, #0]
+
+141	            c = a * 2;
+   0x080003d6 <+70>:	ldr	r3, [r7, #12]
+   0x080003d8 <+72>:	lsls	r3, r3, #1
+   0x080003da <+74>:	str	r3, [r7, #4]
+
+142	            d = a * 3;
+   0x080003dc <+76>:	ldr	r2, [r7, #12]
+   0x080003de <+78>:	mov	r3, r2
+   0x080003e0 <+80>:	lsls	r3, r3, #1
+   0x080003e2 <+82>:	add	r3, r2
+   0x080003e4 <+84>:	str	r3, [r7, #0]
+
+143	            c = c - 1;
+   0x080003e6 <+86>:	ldr	r3, [r7, #4]
+   0x080003e8 <+88>:	subs	r3, #1
+   0x080003ea <+90>:	str	r3, [r7, #4]
+
+144	            d = d - 1;
+   0x080003ec <+92>:	ldr	r3, [r7, #0]
+   0x080003ee <+94>:	subs	r3, #1
+   0x080003f0 <+96>:	str	r3, [r7, #0]
+
+---Type <return> to continue, or q <return> to quit---
+145	        }
+146	       delay();
+   0x080003f2 <+98>:	bl	0x800036c <delay>
+
+147	
+148	    }
+   0x080003f6 <+102>:	b.n	0x80003ae <main+30>
+   0x080003f8 <+104>:	lsls	r4, r0, #17
+   0x080003fa <+106>:	movs	r0, #0
+
