@@ -1,5 +1,7 @@
 #include "timer.h"
 #include "arm_etm.h"
+#include "stm32f10x.h"
+#include "core_cm3.h"
 
 //////////////////////////////////////////////////////////////////////////////////	 
 //本程序只供学习使用，未经作者许可，不得用于其它任何用途
@@ -13,26 +15,53 @@
 //Copyright(C) 广州市星翼电子科技有限公司 2009-2019
 //All rights reserved									  
 ////////////////////////////////////////////////////////////////////////////////// 	  
- 
+
+void bubble_sort_tim (int *a, int n) 
+{
+    int i, t, s = 1;
+    while (s) 
+    {
+        s = 0;
+        for (i = 1; i < n; i++) 
+        {
+            if (a[i] < a[i - 1]) 
+            {
+                t = a[i];
+                a[i] = a[i - 1];
+                a[i - 1] = t;
+                s = 1;            
+            }
+        }
+    }
+}
+
+
+
 //定时器3中断服务程序	 
 void TIM3_IRQHandler(void)
 { 
-    int k = 0;
-    k = 1;
+    int values[5] = {35,2,235,11,2};
+    int values_1[5] = {12,11,5,7,4};
+    int values_2[5] = {6,5,7,9,2};
+
+    ETM_TraceMode();
+    GPIOC->BSRR = (1 << 3);
+    bubble_sort_tim(values_1,5);
+    GPIOC->BRR = (1 << 3);
+    ETM_SetupMode();
 
 	if(TIM3->SR&0X0001)//溢出中断
 	{	
-        ETM_TraceMode();
-        if(k == 1)
-        {
-            k = 2;
-            if(k ==2 )
-            {
-                k = 0;
-            }
-        }
-        ETM_SetupMode();
+        bubble_sort_tim(values,5);
     }				   
+    
+    ETM_TraceMode();
+    GPIOC->BSRR = (1 << 3);
+    bubble_sort_tim(values_2,5);
+    GPIOC->BRR = (1 << 3);
+    ETM_SetupMode();
+
+
 	TIM3->SR&=~(1<<0);//清除中断标志位 	    
 }
 //通用定时器中断初始化
@@ -49,17 +78,4 @@ void TIM3_Int_Init(u16 arr,u16 psc)
 	TIM3->CR1|=0x01;    //使能定时器3
   	MY_NVIC_Init(1,3,TIM3_IRQn,2);//抢占1，子优先级3，组2									 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 

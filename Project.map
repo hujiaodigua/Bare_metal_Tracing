@@ -534,268 +534,270 @@ LOAD /usr/lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
                 0x08000000                g_pfnVectors
                 0x08000134                . = ALIGN (0x4)
 
-.text           0x08000134     0x25e4
+.text           0x08000134     0x26f8
                 0x08000134                . = ALIGN (0x4)
  *(.text)
  .text          0x08000134       0xa4 /usr/lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
- .text          0x080001d8      0x360 ./USER/main.o
+ .text          0x080001d8      0x370 ./USER/main.o
                 0x080001d8                hardfault_handler
                 0x080001e0                configure_tracing
-                0x080002cc                configure_watchpoint
-                0x080002f4                ITM_Print
-                0x0800035c                ITM_SendValue
-                0x080003b4                delay
-                0x080003dc                bubble_sort
-                0x08000470                main
- .text          0x08000538       0x68 ./USER/CoIDE_startup.o
-                0x08000538                Reset_Handler
-                0x08000538                Default_Reset_Handler
-                0x08000590                EXTI2_IRQHandler
-                0x08000590                TIM8_TRG_COM_IRQHandler
-                0x08000590                TIM8_CC_IRQHandler
-                0x08000590                TIM1_CC_IRQHandler
-                0x08000590                TIM6_IRQHandler
-                0x08000590                PVD_IRQHandler
-                0x08000590                SDIO_IRQHandler
-                0x08000590                EXTI3_IRQHandler
-                0x08000590                EXTI0_IRQHandler
-                0x08000590                I2C2_EV_IRQHandler
-                0x08000590                ADC1_2_IRQHandler
-                0x08000590                SPI1_IRQHandler
-                0x08000590                TAMPER_IRQHandler
-                0x08000590                TIM8_UP_IRQHandler
-                0x08000590                DMA2_Channel2_IRQHandler
-                0x08000590                DMA1_Channel4_IRQHandler
-                0x08000590                USART3_IRQHandler
-                0x08000590                RTC_IRQHandler
-                0x08000590                DMA1_Channel7_IRQHandler
-                0x08000590                CAN1_RX1_IRQHandler
-                0x08000590                UART5_IRQHandler
-                0x08000590                ADC3_IRQHandler
-                0x08000590                TIM4_IRQHandler
-                0x08000590                DMA2_Channel1_IRQHandler
-                0x08000590                I2C1_EV_IRQHandler
-                0x08000590                DMA1_Channel6_IRQHandler
-                0x08000590                UART4_IRQHandler
-                0x08000590                RCC_IRQHandler
-                0x08000590                TIM1_TRG_COM_IRQHandler
-                0x08000590                DMA1_Channel1_IRQHandler
-                0x08000590                EXTI15_10_IRQHandler
-                0x08000590                TIM7_IRQHandler
-                0x08000590                TIM5_IRQHandler
-                0x08000590                EXTI9_5_IRQHandler
-                0x08000590                SPI2_IRQHandler
-                0x08000590                DMA1_Channel5_IRQHandler
-                0x08000590                EXTI4_IRQHandler
-                0x08000590                USB_LP_CAN1_RX0_IRQHandler
-                0x08000590                USB_HP_CAN1_TX_IRQHandler
-                0x08000590                DMA1_Channel3_IRQHandler
-                0x08000590                FSMC_IRQHandler
-                0x08000590                TIM1_UP_IRQHandler
-                0x08000590                WWDG_IRQHandler
-                0x08000590                TIM2_IRQHandler
-                0x08000590                TIM1_BRK_IRQHandler
-                0x08000590                EXTI1_IRQHandler
-                0x08000590                RTCAlarm_IRQHandler
-                0x08000590                DMA2_Channel4_5_IRQHandler
-                0x08000590                USART2_IRQHandler
-                0x08000590                I2C2_ER_IRQHandler
-                0x08000590                DMA1_Channel2_IRQHandler
-                0x08000590                TIM8_BRK_IRQHandler
-                0x08000590                CAN1_SCE_IRQHandler
-                0x08000590                FLASH_IRQHandler
-                0x08000590                SPI3_IRQHandler
-                0x08000590                I2C1_ER_IRQHandler
-                0x08000590                USBWakeUp_IRQHandler
-                0x08000590                DMA2_Channel3_IRQHandler
- .text          0x080005a0       0x5c ./USER/stm32f10x_it.o
-                0x080005a0                NMI_Handler
-                0x080005ac                HardFault_Handler
-                0x080005b4                MemManage_Handler
-                0x080005bc                BusFault_Handler
-                0x080005c4                UsageFault_Handler
-                0x080005cc                SVC_Handler
-                0x080005d8                DebugMon_Handler
-                0x080005e4                PendSV_Handler
-                0x080005f0                SysTick_Handler
- .text          0x080005fc      0x24c ./USER/system_stm32f10x.o
-                0x080005fc                SystemInit
-                0x08000664                SystemCoreClockUpdate
- .text          0x08000848      0x408 ./SYSTEM/sys.o
-                0x08000848                MY_NVIC_SetVectorTable
-                0x08000874                MY_NVIC_PriorityGroupConfig
-                0x080008c8                MY_NVIC_Init
-                0x08000968                Ex_NVIC_Config
-                0x08000a38                MYRCC_DeInit
-                0x08000ab8                WFI_SET
-                0x08000ac8                INTX_DISABLE
-                0x08000ad8                INTX_ENABLE
-                0x08000ae8                Sys_Standby
-                0x08000b3c                Sys_Soft_Reset
-                0x08000b58                JTAG_Set
-                0x08000ba4                Stm32_Clock_Init
- .text          0x08000c50      0x18c ./STM32F10x_FWLib/src/misc.o
-                0x08000c50                NVIC_PriorityGroupConfig
-                0x08000c74                NVIC_Init
-                0x08000d38                NVIC_SetVectorTable
-                0x08000d64                NVIC_SystemLPConfig
-                0x08000da4                SysTick_CLKSourceConfig
- .text          0x08000ddc      0x5e8 ./STM32F10x_FWLib/src/stm32f10x_gpio.o
-                0x08000ddc                GPIO_DeInit
-                0x08000ec0                GPIO_AFIODeInit
-                0x08000ed8                GPIO_Init
-                0x08001050                GPIO_StructInit
-                0x08001078                GPIO_ReadInputDataBit
-                0x080010ac                GPIO_ReadInputData
-                0x080010c4                GPIO_ReadOutputDataBit
-                0x080010f8                GPIO_ReadOutputData
-                0x08001110                GPIO_SetBits
-                0x0800112c                GPIO_ResetBits
-                0x08001148                GPIO_WriteBit
-                0x08001178                GPIO_Write
-                0x08001194                GPIO_PinLockConfig
-                0x080011d8                GPIO_EventOutputConfig
-                0x08001224                GPIO_EventOutputCmd
-                0x08001244                GPIO_PinRemapConfig
-                0x08001324                GPIO_EXTILineConfig
-                0x080013a8                GPIO_ETH_MediaInterfaceConfig
- .text          0x080013c4      0x7d0 ./STM32F10x_FWLib/src/stm32f10x_rcc.o
-                0x080013c4                RCC_DeInit
-                0x08001420                RCC_HSEConfig
-                0x0800147c                RCC_WaitForHSEStartUp
-                0x080014cc                RCC_AdjustHSICalibrationValue
-                0x08001508                RCC_HSICmd
-                0x08001528                RCC_PLLConfig
-                0x08001564                RCC_PLLCmd
-                0x08001584                RCC_SYSCLKConfig
-                0x080015bc                RCC_GetSYSCLKSource
-                0x080015d8                RCC_HCLKConfig
-                0x08001610                RCC_PCLK1Config
-                0x08001648                RCC_PCLK2Config
-                0x08001680                RCC_ITConfig
-                0x080016cc                RCC_USBCLKConfig
-                0x080016e8                RCC_ADCCLKConfig
-                0x08001720                RCC_LSEConfig
-                0x08001760                RCC_LSICmd
-                0x08001780                RCC_RTCCLKConfig
-                0x080017a4                RCC_RTCCLKCmd
-                0x080017c4                RCC_GetClocksFreq
-                0x08001924                RCC_AHBPeriphClockCmd
-                0x08001960                RCC_APB2PeriphClockCmd
-                0x0800199c                RCC_APB1PeriphClockCmd
-                0x080019d8                RCC_APB2PeriphResetCmd
-                0x08001a14                RCC_APB1PeriphResetCmd
-                0x08001a50                RCC_BackupResetCmd
-                0x08001a70                RCC_ClockSecuritySystemCmd
-                0x08001a90                RCC_MCOConfig
-                0x08001ab0                RCC_GetFlagStatus
-                0x08001b24                RCC_ClearFlag
-                0x08001b40                RCC_GetITStatus
-                0x08001b74                RCC_ClearITPendingBit
- .text          0x08001b94      0x904 ./STM32F10x_FWLib/src/stm32f10x_usart.o
-                0x08001b94                USART_DeInit
-                0x08001c4c                USART_Init
-                0x08001dc0                USART_StructInit
-                0x08001df8                USART_ClockInit
-                0x08001e50                USART_ClockStructInit
-                0x08001e7c                USART_Cmd
-                0x08001ebc                USART_ITConfig
-                0x08001f4c                USART_DMACmd
-                0x08001f94                USART_SetAddress
-                0x08001fcc                USART_WakeUpConfig
-                0x08002004                USART_ReceiverWakeUpCmd
-                0x08002044                USART_LINBreakDetectLengthConfig
-                0x0800207c                USART_LINCmd
-                0x080020bc                USART_SendData
-                0x080020e0                USART_ReceiveData
-                0x08002100                USART_SendBreak
-                0x08002124                USART_SetGuardTime
-                0x08002160                USART_SetPrescaler
-                0x08002198                USART_SmartCardCmd
-                0x080021d8                USART_SmartCardNACKCmd
-                0x08002218                USART_HalfDuplexCmd
-                0x08002258                USART_OverSampling8Cmd
-                0x0800229c                USART_OneBitMethodCmd
-                0x080022dc                USART_IrDAConfig
-                0x08002314                USART_IrDACmd
-                0x08002354                USART_GetFlagStatus
-                0x0800238c                USART_ClearFlag
-                0x080023ac                USART_GetITStatus
-                0x08002460                USART_ClearITPendingBit
- .text          0x08002498      0x198 ./HARDWARE/usart.o
-                0x08002498                _sys_exit
-                0x080024ac                fputc
-                0x080024e0                uart_init
-                0x08002584                USART1_IRQHandler
- .text          0x08002630       0xd0 ./HARDWARE/timer.o
-                0x08002630                TIM3_IRQHandler
-                0x0800269c                TIM3_Int_Init
+                0x080002d8                configure_watchpoint
+                0x08000300                ITM_Print
+                0x08000368                ITM_SendValue
+                0x080003c0                delay
+                0x080003ec                bubble_sort
+                0x08000480                main
+ .text          0x08000548       0x68 ./USER/CoIDE_startup.o
+                0x08000548                Reset_Handler
+                0x08000548                Default_Reset_Handler
+                0x080005a0                EXTI2_IRQHandler
+                0x080005a0                TIM8_TRG_COM_IRQHandler
+                0x080005a0                TIM8_CC_IRQHandler
+                0x080005a0                TIM1_CC_IRQHandler
+                0x080005a0                TIM6_IRQHandler
+                0x080005a0                PVD_IRQHandler
+                0x080005a0                SDIO_IRQHandler
+                0x080005a0                EXTI3_IRQHandler
+                0x080005a0                EXTI0_IRQHandler
+                0x080005a0                I2C2_EV_IRQHandler
+                0x080005a0                ADC1_2_IRQHandler
+                0x080005a0                SPI1_IRQHandler
+                0x080005a0                TAMPER_IRQHandler
+                0x080005a0                TIM8_UP_IRQHandler
+                0x080005a0                DMA2_Channel2_IRQHandler
+                0x080005a0                DMA1_Channel4_IRQHandler
+                0x080005a0                USART3_IRQHandler
+                0x080005a0                RTC_IRQHandler
+                0x080005a0                DMA1_Channel7_IRQHandler
+                0x080005a0                CAN1_RX1_IRQHandler
+                0x080005a0                UART5_IRQHandler
+                0x080005a0                ADC3_IRQHandler
+                0x080005a0                TIM4_IRQHandler
+                0x080005a0                DMA2_Channel1_IRQHandler
+                0x080005a0                I2C1_EV_IRQHandler
+                0x080005a0                DMA1_Channel6_IRQHandler
+                0x080005a0                UART4_IRQHandler
+                0x080005a0                RCC_IRQHandler
+                0x080005a0                TIM1_TRG_COM_IRQHandler
+                0x080005a0                DMA1_Channel1_IRQHandler
+                0x080005a0                EXTI15_10_IRQHandler
+                0x080005a0                TIM7_IRQHandler
+                0x080005a0                TIM5_IRQHandler
+                0x080005a0                EXTI9_5_IRQHandler
+                0x080005a0                SPI2_IRQHandler
+                0x080005a0                DMA1_Channel5_IRQHandler
+                0x080005a0                EXTI4_IRQHandler
+                0x080005a0                USB_LP_CAN1_RX0_IRQHandler
+                0x080005a0                USB_HP_CAN1_TX_IRQHandler
+                0x080005a0                DMA1_Channel3_IRQHandler
+                0x080005a0                FSMC_IRQHandler
+                0x080005a0                TIM1_UP_IRQHandler
+                0x080005a0                WWDG_IRQHandler
+                0x080005a0                TIM2_IRQHandler
+                0x080005a0                TIM1_BRK_IRQHandler
+                0x080005a0                EXTI1_IRQHandler
+                0x080005a0                RTCAlarm_IRQHandler
+                0x080005a0                DMA2_Channel4_5_IRQHandler
+                0x080005a0                USART2_IRQHandler
+                0x080005a0                I2C2_ER_IRQHandler
+                0x080005a0                DMA1_Channel2_IRQHandler
+                0x080005a0                TIM8_BRK_IRQHandler
+                0x080005a0                CAN1_SCE_IRQHandler
+                0x080005a0                FLASH_IRQHandler
+                0x080005a0                SPI3_IRQHandler
+                0x080005a0                I2C1_ER_IRQHandler
+                0x080005a0                USBWakeUp_IRQHandler
+                0x080005a0                DMA2_Channel3_IRQHandler
+ .text          0x080005b0       0x5c ./USER/stm32f10x_it.o
+                0x080005b0                NMI_Handler
+                0x080005bc                HardFault_Handler
+                0x080005c4                MemManage_Handler
+                0x080005cc                BusFault_Handler
+                0x080005d4                UsageFault_Handler
+                0x080005dc                SVC_Handler
+                0x080005e8                DebugMon_Handler
+                0x080005f4                PendSV_Handler
+                0x08000600                SysTick_Handler
+ .text          0x0800060c      0x24c ./USER/system_stm32f10x.o
+                0x0800060c                SystemInit
+                0x08000674                SystemCoreClockUpdate
+ .text          0x08000858      0x408 ./SYSTEM/sys.o
+                0x08000858                MY_NVIC_SetVectorTable
+                0x08000884                MY_NVIC_PriorityGroupConfig
+                0x080008d8                MY_NVIC_Init
+                0x08000978                Ex_NVIC_Config
+                0x08000a48                MYRCC_DeInit
+                0x08000ac8                WFI_SET
+                0x08000ad8                INTX_DISABLE
+                0x08000ae8                INTX_ENABLE
+                0x08000af8                Sys_Standby
+                0x08000b4c                Sys_Soft_Reset
+                0x08000b68                JTAG_Set
+                0x08000bb4                Stm32_Clock_Init
+ .text          0x08000c60      0x18c ./STM32F10x_FWLib/src/misc.o
+                0x08000c60                NVIC_PriorityGroupConfig
+                0x08000c84                NVIC_Init
+                0x08000d48                NVIC_SetVectorTable
+                0x08000d74                NVIC_SystemLPConfig
+                0x08000db4                SysTick_CLKSourceConfig
+ .text          0x08000dec      0x5e8 ./STM32F10x_FWLib/src/stm32f10x_gpio.o
+                0x08000dec                GPIO_DeInit
+                0x08000ed0                GPIO_AFIODeInit
+                0x08000ee8                GPIO_Init
+                0x08001060                GPIO_StructInit
+                0x08001088                GPIO_ReadInputDataBit
+                0x080010bc                GPIO_ReadInputData
+                0x080010d4                GPIO_ReadOutputDataBit
+                0x08001108                GPIO_ReadOutputData
+                0x08001120                GPIO_SetBits
+                0x0800113c                GPIO_ResetBits
+                0x08001158                GPIO_WriteBit
+                0x08001188                GPIO_Write
+                0x080011a4                GPIO_PinLockConfig
+                0x080011e8                GPIO_EventOutputConfig
+                0x08001234                GPIO_EventOutputCmd
+                0x08001254                GPIO_PinRemapConfig
+                0x08001334                GPIO_EXTILineConfig
+                0x080013b8                GPIO_ETH_MediaInterfaceConfig
+ .text          0x080013d4      0x7d0 ./STM32F10x_FWLib/src/stm32f10x_rcc.o
+                0x080013d4                RCC_DeInit
+                0x08001430                RCC_HSEConfig
+                0x0800148c                RCC_WaitForHSEStartUp
+                0x080014dc                RCC_AdjustHSICalibrationValue
+                0x08001518                RCC_HSICmd
+                0x08001538                RCC_PLLConfig
+                0x08001574                RCC_PLLCmd
+                0x08001594                RCC_SYSCLKConfig
+                0x080015cc                RCC_GetSYSCLKSource
+                0x080015e8                RCC_HCLKConfig
+                0x08001620                RCC_PCLK1Config
+                0x08001658                RCC_PCLK2Config
+                0x08001690                RCC_ITConfig
+                0x080016dc                RCC_USBCLKConfig
+                0x080016f8                RCC_ADCCLKConfig
+                0x08001730                RCC_LSEConfig
+                0x08001770                RCC_LSICmd
+                0x08001790                RCC_RTCCLKConfig
+                0x080017b4                RCC_RTCCLKCmd
+                0x080017d4                RCC_GetClocksFreq
+                0x08001934                RCC_AHBPeriphClockCmd
+                0x08001970                RCC_APB2PeriphClockCmd
+                0x080019ac                RCC_APB1PeriphClockCmd
+                0x080019e8                RCC_APB2PeriphResetCmd
+                0x08001a24                RCC_APB1PeriphResetCmd
+                0x08001a60                RCC_BackupResetCmd
+                0x08001a80                RCC_ClockSecuritySystemCmd
+                0x08001aa0                RCC_MCOConfig
+                0x08001ac0                RCC_GetFlagStatus
+                0x08001b34                RCC_ClearFlag
+                0x08001b50                RCC_GetITStatus
+                0x08001b84                RCC_ClearITPendingBit
+ .text          0x08001ba4      0x904 ./STM32F10x_FWLib/src/stm32f10x_usart.o
+                0x08001ba4                USART_DeInit
+                0x08001c5c                USART_Init
+                0x08001dd0                USART_StructInit
+                0x08001e08                USART_ClockInit
+                0x08001e60                USART_ClockStructInit
+                0x08001e8c                USART_Cmd
+                0x08001ecc                USART_ITConfig
+                0x08001f5c                USART_DMACmd
+                0x08001fa4                USART_SetAddress
+                0x08001fdc                USART_WakeUpConfig
+                0x08002014                USART_ReceiverWakeUpCmd
+                0x08002054                USART_LINBreakDetectLengthConfig
+                0x0800208c                USART_LINCmd
+                0x080020cc                USART_SendData
+                0x080020f0                USART_ReceiveData
+                0x08002110                USART_SendBreak
+                0x08002134                USART_SetGuardTime
+                0x08002170                USART_SetPrescaler
+                0x080021a8                USART_SmartCardCmd
+                0x080021e8                USART_SmartCardNACKCmd
+                0x08002228                USART_HalfDuplexCmd
+                0x08002268                USART_OverSampling8Cmd
+                0x080022ac                USART_OneBitMethodCmd
+                0x080022ec                USART_IrDAConfig
+                0x08002324                USART_IrDACmd
+                0x08002364                USART_GetFlagStatus
+                0x0800239c                USART_ClearFlag
+                0x080023bc                USART_GetITStatus
+                0x08002470                USART_ClearITPendingBit
+ .text          0x080024a8      0x198 ./HARDWARE/usart.o
+                0x080024a8                _sys_exit
+                0x080024bc                fputc
+                0x080024f0                uart_init
+                0x08002594                USART1_IRQHandler
+ .text          0x08002640      0x1d4 ./HARDWARE/timer.o
+                0x08002640                bubble_sort_tim
+                0x080026d4                TIM3_IRQHandler
+                0x080027b0                TIM3_Int_Init
  *(.text*)
  *(.glue_7)
- .glue_7        0x08002700        0x0 linker stubs
+ .glue_7        0x08002814        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x08002700        0x0 linker stubs
+ .glue_7t       0x08002814        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x08002700        0x0 /usr/lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .eh_frame      0x08002814        0x0 /usr/lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
  *(.init)
- .init          0x08002700        0x4 /usr/lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
-                0x08002700                _init
- .init          0x08002704        0x8 /usr/lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+ .init          0x08002814        0x4 /usr/lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+                0x08002814                _init
+ .init          0x08002818        0x8 /usr/lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
  *(.fini)
- .fini          0x0800270c        0x4 /usr/lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
-                0x0800270c                _fini
- .fini          0x08002710        0x8 /usr/lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
-                0x08002718                . = ALIGN (0x4)
-                0x08002718                _etext = .
+ .fini          0x08002820        0x4 /usr/lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+                0x08002820                _fini
+ .fini          0x08002824        0x8 /usr/lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+                0x0800282c                . = ALIGN (0x4)
+                0x0800282c                _etext = .
 
-.vfp11_veneer   0x08002718        0x0
- .vfp11_veneer  0x08002718        0x0 linker stubs
+.vfp11_veneer   0x0800282c        0x0
+ .vfp11_veneer  0x0800282c        0x0 linker stubs
 
-.v4_bx          0x08002718        0x0
- .v4_bx         0x08002718        0x0 linker stubs
+.v4_bx          0x0800282c        0x0
+ .v4_bx         0x0800282c        0x0 linker stubs
 
-.iplt           0x08002718        0x0
- .iplt          0x08002718        0x0 /usr/lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+.iplt           0x0800282c        0x0
+ .iplt          0x0800282c        0x0 /usr/lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
 
-.rodata         0x08002718       0x14
-                0x08002718                . = ALIGN (0x4)
+.rodata         0x0800282c       0x50
+                0x0800282c                . = ALIGN (0x4)
  *(.rodata)
- .rodata        0x08002718       0x14 ./USER/main.o
+ .rodata        0x0800282c       0x14 ./USER/main.o
+ .rodata        0x08002840       0x3c ./HARDWARE/timer.o
  *(.rodata*)
-                0x0800272c                . = ALIGN (0x4)
+                0x0800287c                . = ALIGN (0x4)
 
-.rel.dyn        0x0800272c        0x0
- .rel.iplt      0x0800272c        0x0 /usr/lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+.rel.dyn        0x0800287c        0x0
+ .rel.iplt      0x0800287c        0x0 /usr/lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x0800272c        0x0
-                0x0800272c                __exidx_start = .
+.ARM            0x0800287c        0x0
+                0x0800287c                __exidx_start = .
  *(.ARM.exidx*)
-                0x0800272c                __exidx_end = .
+                0x0800287c                __exidx_end = .
 
-.preinit_array  0x0800272c        0x0
-                0x0800272c                PROVIDE (__preinit_array_start, .)
+.preinit_array  0x0800287c        0x0
+                0x0800287c                PROVIDE (__preinit_array_start, .)
  *(.preinit_array*)
-                0x0800272c                PROVIDE (__preinit_array_end, .)
+                0x0800287c                PROVIDE (__preinit_array_end, .)
 
-.init_array     0x0800272c        0x4
-                0x0800272c                PROVIDE (__init_array_start, .)
+.init_array     0x0800287c        0x4
+                0x0800287c                PROVIDE (__init_array_start, .)
  *(SORT(.init_array.*))
  *(.init_array*)
- .init_array    0x0800272c        0x4 /usr/lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
-                0x08002730                PROVIDE (__init_array_end, .)
+ .init_array    0x0800287c        0x4 /usr/lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+                0x08002880                PROVIDE (__init_array_end, .)
 
-.fini_array     0x08002730        0x4
-                0x08002730                PROVIDE (__fini_array_start, .)
+.fini_array     0x08002880        0x4
+                0x08002880                PROVIDE (__fini_array_start, .)
  *(SORT(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x08002730        0x4 /usr/lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
-                0x08002734                PROVIDE (__fini_array_end, .)
-                0x08002734                _sidata = LOADADDR (.data)
+ .fini_array    0x08002880        0x4 /usr/lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+                0x08002884                PROVIDE (__fini_array_end, .)
+                0x08002884                _sidata = LOADADDR (.data)
 
-.data           0x20000000       0x28 load address 0x08002734
+.data           0x20000000       0x28 load address 0x08002884
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _sdata = .
  *(.data)
@@ -807,25 +809,25 @@ LOAD /usr/lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
                 0x20000028                . = ALIGN (0x4)
                 0x20000028                _edata = .
 
-.jcr            0x20000028        0x0 load address 0x0800275c
+.jcr            0x20000028        0x0 load address 0x080028ac
  .jcr           0x20000028        0x0 /usr/lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
 
 .tm_clone_table
-                0x20000028        0x0 load address 0x0800275c
+                0x20000028        0x0 load address 0x080028ac
  .tm_clone_table
                 0x20000028        0x0 /usr/lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
  .tm_clone_table
                 0x20000028        0x0 /usr/lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
 
-.igot.plt       0x20000028        0x0 load address 0x0800275c
+.igot.plt       0x20000028        0x0 load address 0x080028ac
  .igot.plt      0x20000028        0x0 /usr/lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
 
-.co_stack       0x20000028      0x400 load address 0x0800275c
+.co_stack       0x20000028      0x400 load address 0x080028ac
  .co_stack      0x20000028      0x400 ./USER/CoIDE_startup.o
                 0x20000028                pulStack
                 0x20000428                . = ALIGN (0x4)
 
-.bss            0x20000428      0x154 load address 0x08002b5c
+.bss            0x20000428      0x154 load address 0x08002cac
                 0x20000428                _sbss = .
                 0x20000428                __bss_start__ = _sbss
  *(.bss)
@@ -845,7 +847,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
                 0x2000057c                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x2000057c      0x200 load address 0x08002b5c
+                0x2000057c      0x200 load address 0x08002cac
                 0x2000057c                . = ALIGN (0x4)
                 [!provide]                PROVIDE (end, .)
                 [!provide]                PROVIDE (_end, .)
@@ -916,7 +918,7 @@ OUTPUT(LED_project.elf elf32-littlearm)
  .comment       0x0000002b       0x2c ./HARDWARE/timer.o
  .comment       0x0000002b       0x2c /usr/lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
 
-.debug_info     0x00000000     0x54e9
+.debug_info     0x00000000     0x55e1
  .debug_info    0x00000000      0xe84 ./USER/main.o
  .debug_info    0x00000e84       0xf2 ./USER/CoIDE_startup.o
  .debug_info    0x00000f76      0x133 ./USER/stm32f10x_it.o
@@ -927,9 +929,9 @@ OUTPUT(LED_project.elf elf32-littlearm)
  .debug_info    0x0000296b      0x8a7 ./STM32F10x_FWLib/src/stm32f10x_rcc.o
  .debug_info    0x00003212      0x9f4 ./STM32F10x_FWLib/src/stm32f10x_usart.o
  .debug_info    0x00003c06      0xe8c ./HARDWARE/usart.o
- .debug_info    0x00004a92      0xa57 ./HARDWARE/timer.o
+ .debug_info    0x00004a92      0xb4f ./HARDWARE/timer.o
 
-.debug_abbrev   0x00000000      0xfe8
+.debug_abbrev   0x00000000     0x1000
  .debug_abbrev  0x00000000      0x209 ./USER/main.o
  .debug_abbrev  0x00000209       0xa9 ./USER/CoIDE_startup.o
  .debug_abbrev  0x000002b2       0x67 ./USER/stm32f10x_it.o
@@ -940,7 +942,7 @@ OUTPUT(LED_project.elf elf32-littlearm)
  .debug_abbrev  0x000008f2      0x1be ./STM32F10x_FWLib/src/stm32f10x_rcc.o
  .debug_abbrev  0x00000ab0      0x166 ./STM32F10x_FWLib/src/stm32f10x_usart.o
  .debug_abbrev  0x00000c16      0x265 ./HARDWARE/usart.o
- .debug_abbrev  0x00000e7b      0x16d ./HARDWARE/timer.o
+ .debug_abbrev  0x00000e7b      0x185 ./HARDWARE/timer.o
 
 .debug_aranges  0x00000000      0x160
  .debug_aranges
@@ -966,20 +968,20 @@ OUTPUT(LED_project.elf elf32-littlearm)
  .debug_aranges
                 0x00000140       0x20 ./HARDWARE/timer.o
 
-.debug_line     0x00000000     0x1086
- .debug_line    0x00000000      0x171 ./USER/main.o
- .debug_line    0x00000171       0x5c ./USER/CoIDE_startup.o
- .debug_line    0x000001cd       0xe6 ./USER/stm32f10x_it.o
- .debug_line    0x000002b3      0x14f ./USER/system_stm32f10x.o
- .debug_line    0x00000402      0x147 ./SYSTEM/sys.o
- .debug_line    0x00000549      0x141 ./STM32F10x_FWLib/src/misc.o
- .debug_line    0x0000068a      0x222 ./STM32F10x_FWLib/src/stm32f10x_gpio.o
- .debug_line    0x000008ac      0x26b ./STM32F10x_FWLib/src/stm32f10x_rcc.o
- .debug_line    0x00000b17      0x278 ./STM32F10x_FWLib/src/stm32f10x_usart.o
- .debug_line    0x00000d8f      0x206 ./HARDWARE/usart.o
- .debug_line    0x00000f95       0xf1 ./HARDWARE/timer.o
+.debug_line     0x00000000     0x10ac
+ .debug_line    0x00000000      0x175 ./USER/main.o
+ .debug_line    0x00000175       0x5c ./USER/CoIDE_startup.o
+ .debug_line    0x000001d1       0xe6 ./USER/stm32f10x_it.o
+ .debug_line    0x000002b7      0x14f ./USER/system_stm32f10x.o
+ .debug_line    0x00000406      0x147 ./SYSTEM/sys.o
+ .debug_line    0x0000054d      0x141 ./STM32F10x_FWLib/src/misc.o
+ .debug_line    0x0000068e      0x222 ./STM32F10x_FWLib/src/stm32f10x_gpio.o
+ .debug_line    0x000008b0      0x26b ./STM32F10x_FWLib/src/stm32f10x_rcc.o
+ .debug_line    0x00000b1b      0x278 ./STM32F10x_FWLib/src/stm32f10x_usart.o
+ .debug_line    0x00000d93      0x206 ./HARDWARE/usart.o
+ .debug_line    0x00000f99      0x113 ./HARDWARE/timer.o
 
-.debug_str      0x00000000     0x1e20
+.debug_str      0x00000000     0x1e42
  .debug_str     0x00000000      0x53d ./USER/main.o
                                 0x5b2 (size before relaxing)
  .debug_str     0x0000053d       0x76 ./USER/CoIDE_startup.o
@@ -1000,10 +1002,10 @@ OUTPUT(LED_project.elf elf32-littlearm)
                                 0x65a (size before relaxing)
  .debug_str     0x00001540      0x7f9 ./HARDWARE/usart.o
                                 0xbdd (size before relaxing)
- .debug_str     0x00001d39       0xe7 ./HARDWARE/timer.o
-                                0x7e8 (size before relaxing)
+ .debug_str     0x00001d39      0x109 ./HARDWARE/timer.o
+                                0x828 (size before relaxing)
 
-.debug_frame    0x00000000     0x1308
+.debug_frame    0x00000000     0x1330
  .debug_frame   0x00000000      0x12c ./USER/main.o
  .debug_frame   0x0000012c       0x4c ./USER/CoIDE_startup.o
  .debug_frame   0x00000178      0x110 ./USER/stm32f10x_it.o
@@ -1014,7 +1016,7 @@ OUTPUT(LED_project.elf elf32-littlearm)
  .debug_frame   0x00000880      0x4f4 ./STM32F10x_FWLib/src/stm32f10x_rcc.o
  .debug_frame   0x00000d74      0x490 ./STM32F10x_FWLib/src/stm32f10x_usart.o
  .debug_frame   0x00001204       0xa8 ./HARDWARE/usart.o
- .debug_frame   0x000012ac       0x5c ./HARDWARE/timer.o
+ .debug_frame   0x000012ac       0x84 ./HARDWARE/timer.o
 
 Cross Reference Table
 
@@ -1676,6 +1678,7 @@ _sys_exit                                         ./HARDWARE/usart.o
 atexit                                            /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv7-m/libc_nano.a(lib_a-atexit.o)
                                                   /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/armv7-m/crt0.o
 bubble_sort                                       ./USER/main.o
+bubble_sort_tim                                   ./HARDWARE/timer.o
 configure_tracing                                 ./USER/main.o
 configure_watchpoint                              ./USER/main.o
 delay                                             ./USER/main.o
