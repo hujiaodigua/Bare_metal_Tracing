@@ -23,13 +23,13 @@ void LED_Init(void)
  //RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA|RCC_APB2Periph_GPIOD, ENABLE);	 //Ê¹ÄÜPA,PD¶Ë¿ÚÊ±ÖÓ
 RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
 
- GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3;				 //LED0-->PA.8 ¶Ë¿ÚÅäÖÃ
+ GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6;				 //LED0-->PA.8 ¶Ë¿ÚÅäÖÃ
  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //ÍÆÍìÊä³ö
  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		 //IO¿ÚËÙ¶ÈÎª50MHz
  GPIO_Init(GPIOC, &GPIO_InitStructure);					 //¸ù¾ÝÉè¶¨²ÎÊý³õÊ¼»¯GPIOA.8
- GPIO_SetBits(GPIOC,GPIO_Pin_8);						 //PA.8 Êä³ö¸ß
+ GPIO_SetBits(GPIOC,GPIO_Pin_6);						 //PA.8 Êä³ö¸ß
 
- GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;	    		 //LED1-->PD.2 ¶Ë¿ÚÅäÖÃ, ÍÆÍìÊä³ö
+ GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7;	    		 //LED1-->PD.2 ¶Ë¿ÚÅäÖÃ, ÍÆÍìÊä³ö
  GPIO_Init(GPIOC, &GPIO_InitStructure);	  				 //ÍÆÍìÊä³ö £¬IO¿ÚËÙ¶ÈÎª50MHz
- GPIO_SetBits(GPIOC,GPIO_Pin_4); 						 //PD.2 Êä³ö¸ß
+ GPIO_SetBits(GPIOC,GPIO_Pin_7); 						 //PD.2 Êä³ö¸ß
 }

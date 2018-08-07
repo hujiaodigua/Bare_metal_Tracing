@@ -13,8 +13,8 @@
 //Copyright(C) �������������ӿƼ����޹�˾ 2009-2019
 //All rights reserved
 //////////////////////////////////////////////////////////////////////////////////
-#define LED0 PCout(3)	// PA8
-#define LED1 PCout(4)	// PD2
+#define LED0 PCout(6)	// PC6
+#define LED1 PCout(7)	// PC7
 
 void LED_Init(void);//��ʼ��
 

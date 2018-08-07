@@ -26,7 +26,6 @@ Dump of assembler code for function delay:
    0x0800038e:	nop
 
 
-
 disassemble /m main
 Dump of assembler code for function main:
 118	{

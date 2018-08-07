@@ -1,0 +1,295 @@
+disassemble /m main
+Dump of assembler code for function main:
+warning: Source file is more recent than executable.
+168	{
+   0x08000480 <+0>:	push	{r4, r5, r7, lr}
+   0x08000482 <+2>:	sub	sp, #48	; 0x30
+   0x08000484 <+4>:	add	r7, sp, #0
+
+169	    int a = 0;
+   0x08000486 <+6>:	movs	r3, #0
+   0x08000488 <+8>:	str	r3, [r7, #44]	; 0x2c
+
+170	    int b = 0;
+   0x0800048a <+10>:	movs	r3, #0
+   0x0800048c <+12>:	str	r3, [r7, #40]	; 0x28
+
+171	    int c = 0;
+   0x0800048e <+14>:	movs	r3, #0
+   0x08000490 <+16>:	str	r3, [r7, #36]	; 0x24
+
+172	    int d = 0;
+   0x08000492 <+18>:	movs	r3, #0
+   0x08000494 <+20>:	str	r3, [r7, #32]
+
+173	    int values[5] = {35,2,235,11,2};
+   0x08000496 <+22>:	ldr	r3, [pc, #180]	; (0x800054c <main+204>)
+   0x08000498 <+24>:	adds	r4, r7, #4
+   0x0800049a <+26>:	mov	r5, r3
+   0x0800049c <+28>:	ldmia	r5!, {r0, r1, r2, r3}
+   0x0800049e <+30>:	stmia	r4!, {r0, r1, r2, r3}
+   0x080004a0 <+32>:	ldr	r3, [r5, #0]
+   0x080004a2 <+34>:	str	r3, [r4, #0]
+
+174	    uint32_t r;
+175	    uint32_t r_address;
+176	
+177	    configure_tracing();
+   0x080004a4 <+36>:	bl	0x80001e0 <configure_tracing>
+
+178	    configure_watchpoint();
+   0x080004a8 <+40>:	bl	0x80002d8 <configure_watchpoint>
+
+179	
+180	    GPIOC->CRL &= 0xFFF00FFF;
+   0x080004ac <+44>:	ldr	r2, [pc, #160]	; (0x8000550 <main+208>)
+   0x080004ae <+46>:	ldr	r3, [pc, #160]	; (0x8000550 <main+208>)
+   0x080004b0 <+48>:	ldr	r3, [r3, #0]
+   0x080004b2 <+50>:	bic.w	r3, r3, #1044480	; 0xff000
+---Type <return> to continue, or q <return> to quit---
+   0x080004b6 <+54>:	str	r3, [r2, #0]
+
+181	    GPIOC->CRL |= 0x00033000;//设置PC3，PC4为输出
+   0x080004b8 <+56>:	ldr	r2, [pc, #148]	; (0x8000550 <main+208>)
+   0x080004ba <+58>:	ldr	r3, [pc, #148]	; (0x8000550 <main+208>)
+   0x080004bc <+60>:	ldr	r3, [r3, #0]
+   0x080004be <+62>:	orr.w	r3, r3, #208896	; 0x33000
+   0x080004c2 <+66>:	str	r3, [r2, #0]
+
+182	
+183	    TIM3_Int_Init(50,7199);//10KHz的频率，计数到5000为500ms
+   0x080004c4 <+68>:	movw	r1, #7199	; 0x1c1f
+   0x080004c8 <+72>:	movs	r0, #50	; 0x32
+   0x080004ca <+74>:	bl	0x80027c8 <TIM3_Int_Init>
+
+184	
+185	
+186	    while(1)
+187	    {
+188	
+189	        a++;
+   0x080004ce <+78>:	ldr	r3, [r7, #44]	; 0x2c
+   0x080004d0 <+80>:	adds	r3, #1
+   0x080004d2 <+82>:	str	r3, [r7, #44]	; 0x2c
+
+190	        delay();
+   0x080004d4 <+84>:	bl	0x80003c0 <delay>
+
+191	        
+192	        ETM_TraceMode();
+   0x080004d8 <+88>:	ldr	r2, [pc, #120]	; (0x8000554 <main+212>)
+   0x080004da <+90>:	ldr	r3, [pc, #120]	; (0x8000554 <main+212>)
+   0x080004dc <+92>:	ldr	r3, [r3, #0]
+   0x080004de <+94>:	bic.w	r3, r3, #1024	; 0x400
+   0x080004e2 <+98>:	str	r3, [r2, #0]
+
+193	        bubble_sort(values, 5);
+   0x080004e4 <+100>:	adds	r3, r7, #4
+   0x080004e6 <+102>:	movs	r1, #5
+   0x080004e8 <+104>:	mov	r0, r3
+   0x080004ea <+106>:	bl	0x80003ec <bubble_sort>
+
+194	        ETM_SetupMode();
+   0x080004ee <+110>:	ldr	r2, [pc, #100]	; (0x8000554 <main+212>)
+   0x080004f0 <+112>:	ldr	r3, [pc, #96]	; (0x8000554 <main+212>)
+   0x080004f2 <+114>:	ldr	r3, [r3, #0]
+---Type <return> to continue, or q <return> to quit---
+   0x080004f4 <+116>:	orr.w	r3, r3, #1024	; 0x400
+   0x080004f8 <+120>:	str	r3, [r2, #0]
+
+195	
+196	        if(a == 10)
+   0x080004fa <+122>:	ldr	r3, [r7, #44]	; 0x2c
+   0x080004fc <+124>:	cmp	r3, #10
+   0x080004fe <+126>:	bne.n	0x800050a <main+138>
+
+197	        {
+198	            globalCounter++;
+   0x08000500 <+128>:	ldr	r3, [pc, #84]	; (0x8000558 <main+216>)
+   0x08000502 <+130>:	ldr	r3, [r3, #0]
+   0x08000504 <+132>:	adds	r3, #1
+   0x08000506 <+134>:	ldr	r2, [pc, #80]	; (0x8000558 <main+216>)
+   0x08000508 <+136>:	str	r3, [r2, #0]
+
+199	        }
+200	      
+201	        if(a == 15)
+   0x0800050a <+138>:	ldr	r3, [r7, #44]	; 0x2c
+   0x0800050c <+140>:	cmp	r3, #15
+   0x0800050e <+142>:	bne.n	0x8000526 <main+166>
+
+202	        {
+203	            //ETM_TraceMode();
+204	            GPIOC->BSRR = (1 << 4);
+   0x08000510 <+144>:	ldr	r3, [pc, #60]	; (0x8000550 <main+208>)
+   0x08000512 <+146>:	movs	r2, #16
+   0x08000514 <+148>:	str	r2, [r3, #16]
+
+205	      
+206	           //ITM_Print(0, "first");
+207	            bubble_sort(values, 5);
+   0x08000516 <+150>:	adds	r3, r7, #4
+   0x08000518 <+152>:	movs	r1, #5
+   0x0800051a <+154>:	mov	r0, r3
+   0x0800051c <+156>:	bl	0x80003ec <bubble_sort>
+
+208	            
+209	            GPIOC->BRR = (1 << 4);
+   0x08000520 <+160>:	ldr	r3, [pc, #44]	; (0x8000550 <main+208>)
+   0x08000522 <+162>:	movs	r2, #16
+   0x08000524 <+164>:	str	r2, [r3, #20]
+
+210	            //ETM_SetupMode();
+---Type <return> to continue, or q <return> to quit---
+211	        }
+212	      
+213	        delay();
+   0x08000526 <+166>:	bl	0x80003c0 <delay>
+
+214	        bubble_sort(values, 5);
+   0x0800052a <+170>:	adds	r3, r7, #4
+   0x0800052c <+172>:	movs	r1, #5
+   0x0800052e <+174>:	mov	r0, r3
+   0x08000530 <+176>:	bl	0x80003ec <bubble_sort>
+
+215	        if(a == 20)
+   0x08000534 <+180>:	ldr	r3, [r7, #44]	; 0x2c
+   0x08000536 <+182>:	cmp	r3, #20
+   0x08000538 <+184>:	bne.n	0x800053e <main+190>
+
+216	        {
+217	            //ITM_Print(0,"second");
+218	            a = 0;
+   0x0800053a <+186>:	movs	r3, #0
+   0x0800053c <+188>:	str	r3, [r7, #44]	; 0x2c
+
+219	        }
+220	        r = ETM->CCR;
+   0x0800053e <+190>:	ldr	r3, [pc, #20]	; (0x8000554 <main+212>)
+   0x08000540 <+192>:	ldr	r3, [r3, #4]
+   0x08000542 <+194>:	str	r3, [r7, #28]
+
+221	        r_address = &(ETM->CCR);
+   0x08000544 <+196>:	ldr	r3, [pc, #20]	; (0x800055c <main+220>)
+   0x08000546 <+198>:	str	r3, [r7, #24]
+
+222	        
+223	    }
+   0x08000548 <+200>:	b.n	0x80004ce <main+78>
+   0x0800054a <+202>:	nop
+   0x0800054c <+204>:	cmp	r0, #68	; 0x44
+   0x0800054e <+206>:	lsrs	r0, r0, #32
+   0x08000550 <+208>:	asrs	r0, r0, #32
+   0x08000552 <+210>:	ands	r1, r0
+   0x08000554 <+212>:	asrs	r0, r0, #32
+   0x08000556 <+214>:	b.n	0x8000562 <Default_Reset_Handler+2>
+   0x08000558 <+216>:	lsls	r4, r0, #17
+   0x0800055a <+218>:	movs	r0, #0
+   0x0800055c <+220>:	asrs	r4, r0, #32
+   0x0800055e <+222>:	b.n	0x800056a <Default_Reset_Handler+10>
+---Type <return> to continue, or q <return> to quit---
+
+End of assembler dump.
+(gdb) disassemble /m bubble_sort
+Dump of assembler code for function bubble_sort:
+148	{
+   0x080003ec <+0>:	push	{r7}
+   0x080003ee <+2>:	sub	sp, #28
+   0x080003f0 <+4>:	add	r7, sp, #0
+   0x080003f2 <+6>:	str	r0, [r7, #4]
+   0x080003f4 <+8>:	str	r1, [r7, #0]
+
+149	    int i, t, s = 1;
+   0x080003f6 <+10>:	movs	r3, #1
+   0x080003f8 <+12>:	str	r3, [r7, #16]
+
+150	    while (s) 
+   0x080003fa <+14>:	b.n	0x800046e <bubble_sort+130>
+   0x0800046e <+130>:	ldr	r3, [r7, #16]
+   0x08000470 <+132>:	cmp	r3, #0
+   0x08000472 <+134>:	bne.n	0x80003fc <bubble_sort+16>
+
+151	    {
+152	        s = 0;
+   0x080003fc <+16>:	movs	r3, #0
+   0x080003fe <+18>:	str	r3, [r7, #16]
+
+153	        for (i = 1; i < n; i++) 
+   0x08000400 <+20>:	movs	r3, #1
+   0x08000402 <+22>:	str	r3, [r7, #20]
+   0x08000404 <+24>:	b.n	0x8000466 <bubble_sort+122>
+   0x08000460 <+116>:	ldr	r3, [r7, #20]
+   0x08000462 <+118>:	adds	r3, #1
+   0x08000464 <+120>:	str	r3, [r7, #20]
+   0x08000466 <+122>:	ldr	r2, [r7, #20]
+   0x08000468 <+124>:	ldr	r3, [r7, #0]
+   0x0800046a <+126>:	cmp	r2, r3
+   0x0800046c <+128>:	blt.n	0x8000406 <bubble_sort+26>
+
+154	        {
+155	            if (a[i] < a[i - 1]) 
+   0x08000406 <+26>:	ldr	r3, [r7, #20]
+   0x08000408 <+28>:	lsls	r3, r3, #2
+   0x0800040a <+30>:	ldr	r2, [r7, #4]
+   0x0800040c <+32>:	add	r3, r2
+   0x0800040e <+34>:	ldr	r2, [r3, #0]
+   0x08000410 <+36>:	ldr	r3, [r7, #20]
+   0x08000412 <+38>:	add.w	r3, r3, #1073741824	; 0x40000000
+   0x08000416 <+42>:	subs	r3, #1
+   0x08000418 <+44>:	lsls	r3, r3, #2
+---Type <return> to continue, or q <return> to quit---
+   0x0800041a <+46>:	ldr	r1, [r7, #4]
+   0x0800041c <+48>:	add	r3, r1
+   0x0800041e <+50>:	ldr	r3, [r3, #0]
+   0x08000420 <+52>:	cmp	r2, r3
+   0x08000422 <+54>:	bge.n	0x8000460 <bubble_sort+116>
+
+156	            {
+157	                t = a[i];
+   0x08000424 <+56>:	ldr	r3, [r7, #20]
+   0x08000426 <+58>:	lsls	r3, r3, #2
+   0x08000428 <+60>:	ldr	r2, [r7, #4]
+   0x0800042a <+62>:	add	r3, r2
+   0x0800042c <+64>:	ldr	r3, [r3, #0]
+   0x0800042e <+66>:	str	r3, [r7, #12]
+
+158	                a[i] = a[i - 1];
+   0x08000430 <+68>:	ldr	r3, [r7, #20]
+   0x08000432 <+70>:	lsls	r3, r3, #2
+   0x08000434 <+72>:	ldr	r2, [r7, #4]
+   0x08000436 <+74>:	add	r2, r3
+   0x08000438 <+76>:	ldr	r3, [r7, #20]
+   0x0800043a <+78>:	add.w	r3, r3, #1073741824	; 0x40000000
+   0x0800043e <+82>:	subs	r3, #1
+   0x08000440 <+84>:	lsls	r3, r3, #2
+   0x08000442 <+86>:	ldr	r1, [r7, #4]
+   0x08000444 <+88>:	add	r3, r1
+   0x08000446 <+90>:	ldr	r3, [r3, #0]
+   0x08000448 <+92>:	str	r3, [r2, #0]
+
+159	                a[i - 1] = t;
+   0x0800044a <+94>:	ldr	r3, [r7, #20]
+   0x0800044c <+96>:	add.w	r3, r3, #1073741824	; 0x40000000
+   0x08000450 <+100>:	subs	r3, #1
+   0x08000452 <+102>:	lsls	r3, r3, #2
+   0x08000454 <+104>:	ldr	r2, [r7, #4]
+   0x08000456 <+106>:	add	r3, r2
+   0x08000458 <+108>:	ldr	r2, [r7, #12]
+   0x0800045a <+110>:	str	r2, [r3, #0]
+
+160	                s = 1;            
+   0x0800045c <+112>:	movs	r3, #1
+   0x0800045e <+114>:	str	r3, [r7, #16]
+
+161	            }
+162	        }
+163	    }
+---Type <return> to continue, or q <return> to quit---
+164	}
+   0x08000474 <+136>:	nop
+   0x08000476 <+138>:	adds	r7, #28
+   0x08000478 <+140>:	mov	sp, r7
+   0x0800047a <+142>:	pop	{r7}
+   0x0800047c <+144>:	bx	lr
+   0x0800047e:	nop
+
