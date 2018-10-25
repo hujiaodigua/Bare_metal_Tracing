@@ -1,0 +1,20 @@
+main.gcno:note:magic `gcno':version `504*'
+main.gcno:warning:current version is `603*'
+main.gcno:stamp 2812424059
+main.gcno: 01000000:  11:FUNCTION ident=108032747, lineno_checksum=0xd8d0da4a, cfg_checksum=0x8b718591, `main' USER/main.c:5
+        //tag=0x01000000,length=11,tagname=FUNCTION,function的信息(ident,checksum,函数名,文件名，行号)
+
+//以下为6个BLOCKS记录
+main.gcno:  01410000:   6:BLOCKS 6 blocks
+
+//以下为5个ARCS记录,小写的arcs为提示信息,大写的ARCS为tag名字
+main.gcno:  01430000:   3:ARCS 1 arcs    //tag=0x01430000:length=3:tagname=ARCS n_arcs=1.格式下同
+main.gcno:  01430000:   5:ARCS 2 arcs   
+main.gcno:  01430000:   3:ARCS 1 arcs
+main.gcno:  01430000:   3:ARCS 1 arcs
+main.gcno:  01430000:   3:ARCS 1 arcs
+
+//以下为6个LINES记录，大写的LINES为tag名字
+main.gcno:  01450000:  12:LINES         //tag=0x01450000:length=12:tagname=LINES
+main.gcno:  01450000:   9:LINES
+main.gcno:  01450000:   9:LINES
